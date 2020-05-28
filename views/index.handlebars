@@ -1,5 +1,7 @@
+<br>
 <div class="text-center">
-  <img src="../public/assets/img/hamburger-3184108_960_720.webp" alt="hamburger" height="100px" width="100px">
+  <img src="https://cdn.pixabay.com/photo/2018/02/26/21/44/hamburger-3184108_960_720.png" alt="hamburger" height="100px"
+    width="100px">
 </div>
 
 <div>
@@ -7,21 +9,35 @@
 </div>
 
 <div class="container">
-  <div class="rows">
-    <div class="col">
-      <ul>
-        {{#each burgers}}
+  <div class="row">
+    <div class="col-6">
+      <h3 class="text-center"><u>Current Menu</u></h3>
+      <br>
+      <ul class="list-group">
+        {{#each burger}}
         {{#unless devoured}}
-        {{> burgers/burger-block}}
+        <li class="list-group-item text-white bg-dark">
+          {{burger_name}}
+
+          <button class="devouredButton btn btn-info float-right" data-id="{{id}}" data-devoureddata="{{devoured}}">
+            {{#if devoured}}{{else}}Eat Da Burger!{{/if}}
+          </button>
+        </li>
         {{/unless}}
         {{/each}}
       </ul>
     </div>
-    <div class="col">
-      <ul>
-        {{#each burgers}}
+    <div class="col-6">
+      <h3 class="text-center"><u>Burgers Eaten</u></h3>
+      <br>
+      <ul class="list-group">
+        {{#each burger}}
         {{#if devoured}}
-        {{> burgers/burger-block}}
+        <li class="list-group-item text-white bg-dark">
+          {{burger_name}}
+
+
+        </li>
         {{/if}}
         {{/each}}
       </ul>
@@ -36,15 +52,15 @@
   <div class="row text-center">
     <div class="col text-center">
       <h2>Add a Burger</h2>
-<form class="create-form">
+      <form id="form">
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
+        <div class="form-group">
+          <label>Burger Name:</label>
+          <input type="text" id="newBurger" name="name">
+        </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+        <button type="submit">Add Burger</button>
+      </form>
     </div>
   </div>
 </div>

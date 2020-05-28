@@ -9,8 +9,8 @@ router.get("/", async (req, res) => {
   res.render("index", { burger: data });
 });
 
-router.post("/api/burgers", async (req, res) => {
-  const data = await burger.create(["name", "sleepy"], [req.body.name, req.body.sleepy]);
+router.post("/api/burger", async (req, res) => {
+  const data = await burger.create(["burger_name", "devoured"], [req.body.name, req.body.devoured]);
 
   res.json({ id: data.insertId });
 });
@@ -20,7 +20,7 @@ router.put("/api/burgers/:id", async (req, res) => {
 
   console.log("condition", condition);
 
-  const data = await burger.update({ sleepy: req.body.sleepy }, condition);
+  const data = await burger.update({ devoured: 1 }, condition);
 
   if (data.changedRows === 0) {
     res.status(404).end();
