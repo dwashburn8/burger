@@ -2,7 +2,7 @@
 
 # Eat-Da-Burgers!
 
-![Demo](/img/demo.png)
+![Demo](public/assets/img/demo.png)
                           
 ## Description
                           
